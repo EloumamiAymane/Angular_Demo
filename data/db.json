@@ -21,20 +21,8 @@
     {
       "name": "a",
       "price": 0,
-      "checked": false,
-      "id": "WaNPOFq"
-    },
-    {
-      "name": "a",
-      "price": 0,
-      "checked": false,
-      "id": "4KK8k0w"
-    },
-    {
-      "name": "a",
-      "price": 0,
-      "checked": false,
-      "id": "l_8mHje"
+      "checked": true,
+      "id": "Ko1zrvh"
     }
   ]
 }

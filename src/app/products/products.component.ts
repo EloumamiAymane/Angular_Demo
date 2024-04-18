@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {ProductService} from "../services/product.service";
 import {Product} from "../model/product.model";
 import {Router} from "@angular/router";
+import {AppStateService} from "../services/app-state.service";
 
 
 @Component({
@@ -11,12 +12,10 @@ import {Router} from "@angular/router";
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit{
-  public products :Array<Product>=[];
-  public keyword : string="";
-  public totalPage:number=0;
-  public currentPage:number=1;
-  public sizePage:number=3;
-  constructor(private productService:ProductService,private router:Router) {
+
+  constructor(private productService:ProductService,
+              private router:Router,
+              public  appState:AppStateService) {
   }
 
   ngOnInit() {
@@ -24,13 +23,20 @@ export class ProductsComponent implements OnInit{
   }
 
   getProducts(){
-    this.productService.getProducts(this.keyword,this.currentPage,this.sizePage)
+    this.productService.getProducts(this.appState.productState.keyword,
+                                    this.appState.productState.currentPage,
+                                    this.appState.productState.pageSize)
       .subscribe({
         next : data => {
-          this.products=data.body as Product[];
+          let products=data.body as Product[];
           let totalProducts:number=parseInt(data.headers.get("x-total-count")!)
-          this.totalPage=Math.floor(totalProducts/this.sizePage)
-          if(totalProducts % this.sizePage !=0 ) this.totalPage++;
+          let totalPage=Math.floor(totalProducts/this.appState.productState.pageSize )
+          if(totalProducts %  this.appState.productState.pageSize !=0 ) totalPage++;
+          this.appState.setProductState({
+            products:products,
+            totalProducts:totalProducts,
+            totalPages:totalPage
+          })
         },
         error : err => {
           console.log(err);
@@ -51,18 +57,25 @@ export class ProductsComponent implements OnInit{
     if(confirm("Etes vous sûre?"))
     this.productService.deleteProduct(product).subscribe({
       next:value => {
-        this.products=this.products.filter(p=>p.id!=product.id);
+        // this.appState.setProductState({
+        //   products:this.appState.productState.products.filter((p:any)=>p.id!=product.id)
+        // });
+this.getProducts()
       }
     })
   }
 
   searchProducts() {
-    this.currentPage=1
-    this.sizePage=3
+    this.appState.setProductState({
+      currentPage:1,
+      sizePage:3
+    })
     this.getProducts()
   }
   getProductsPage(page:number){
-    this.currentPage=page;
+    this.appState.setProductState({
+      currentPage:page
+    })
     this.getProducts()
   }
   EditProduct(p:Product){
