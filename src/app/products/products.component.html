@@ -13,7 +13,7 @@
       <table class="table">
         <thead>
         <tr>
-          <th>Name</th> <th>Price</th> <th>Checked</th>
+          <th>Name</th> <th>Price</th> <th>Checked</th><th></th><th></th>
         </tr>
         </thead>
         <tbody>
@@ -31,7 +31,24 @@
                <i class="bi bi-trash"></i>
              </button>
            </td>
+           <td>
+             <button (click)="EditProduct(product)" class="btn btn-outline-warning">
+               <i class="bi bi-pencil"></i>
+             </button>
+           </td>
          </tr>
+        <ul class="nav nav-pills">
+          <li *ngFor="let p of [].constructor(this.totalPage);let i =index">
+           <button
+             (click)="getProductsPage(i+1)"
+             [class]="currentPage==(i+1) ?'btn-success':'btn-outline-success'"
+             class="btn m-1"
+           >
+             {{i+1}}
+           </button>
+          </li>
+
+        </ul>
         </tbody>
       </table>
     </div>

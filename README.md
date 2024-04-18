@@ -1,27 +1,36 @@
-# EnsetApp
+### Angular App Demo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+   
+<p>Steps which we will follow in this demo :</p>
+<ul>
+<li>install json server library   and added data to db.json.
 
-## Development server
+```shell
+    # create a new Gatsby site using the minimal starter
+    npm install --save  json-server
+```
+</li>
+<li>create a service layer which we will create api that interact with backend.
+<img src="ScreenShot/service-layer.png">
+</li>
+<li>Create Product Model Type.
+<img src="ScreenShot/ProductType.png">
+</li>
+<li>create a Home Component which will display just HomeComponent label.
+<img src="ScreenShot/HomeProduct.png">
+</li>
+<li>Display navbar in the root of the project in our AppComponent.
+<img src="ScreenShot/navbar.png">
+</li>
+<li>Create Products Component to display products list.
+<img src="ScreenShot/productsList.png">
+</li>
+<li>Create New Products Component to Add product.
+<img src="ScreenShot/newProduct.png">
+</li>
+<li>Create Edit Products Component to Edit product.
+<img src="ScreenShot/EditProduct.png">
+</li>
+</ul>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

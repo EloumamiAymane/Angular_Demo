@@ -1,20 +1,8 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Computer",
-      "price": 5600,
-      "checked": true
-    },
-    {
-      "id": 2,
-      "name": "Computer",
-      "price": 5600,
-      "checked": false
-    },
-    {
-      "id": 3,
-      "name": "Computer",
+      "id": "2",
+      "name": "Computer1",
       "price": 5600,
       "checked": true
     },
@@ -22,25 +10,31 @@
       "name": "Smart 67",
       "price": "4500",
       "checked": false,
-      "id": 4
+      "id": "4"
     },
     {
-      "name": "Smart 67",
-      "price": "4500",
+      "id": "03af",
+      "name": "mouse",
+      "price": "145",
+      "checked": true
+    },
+    {
+      "name": "a",
+      "price": 0,
       "checked": false,
-      "id": 5
+      "id": "WaNPOFq"
     },
     {
-      "name": "mmmmm",
-      "price": "5400",
-      "checked": true,
-      "id": 6
+      "name": "a",
+      "price": 0,
+      "checked": false,
+      "id": "4KK8k0w"
     },
     {
-      "name": "mmmmm",
-      "price": "5400",
-      "checked": true,
-      "id": 7
+      "name": "a",
+      "price": 0,
+      "checked": false,
+      "id": "l_8mHje"
     }
   ]
 }
